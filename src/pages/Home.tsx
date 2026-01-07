@@ -1,4 +1,4 @@
-import React from 'react';
+
 import EventsSection from '../components/sections/events';
 import LibrarySection from '../components/sections/library';
 import MembersSection from '../components/sections/members';

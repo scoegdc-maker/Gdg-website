@@ -15,6 +15,7 @@ import { uploadImage } from '@/lib/upload-image';
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   title: z.string().min(2, { message: 'Title must be at least 2 characters.' }),
+  bio: z.string().optional(),
   email: z.string().email({ message: 'Please enter a valid email.' }).optional().or(z.literal('')),
   linkedin: z.string().optional(),
   quote: z.string().optional(),
@@ -32,6 +33,7 @@ export default function AddAdvisorForm() {
     defaultValues: {
       name: '',
       title: '',
+      bio: '',
       email: '',
       linkedin: '',
       quote: '',
@@ -100,7 +102,7 @@ export default function AddAdvisorForm() {
         {
           name: values.name,
           title: values.title,
-          bio: null,
+          bio: values.bio || null,
           image_url: imageUrl,
           email: values.email || null,
           linkedin: values.linkedin || null,
@@ -180,6 +182,7 @@ export default function AddAdvisorForm() {
                       className="resize-none"
                       rows={4}
                       {...field}
+                      value={field.value || ''}
                     />
                   </FormControl>
                   <FormMessage />

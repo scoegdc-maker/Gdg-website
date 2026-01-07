@@ -7,6 +7,7 @@ export interface Event {
     date: string;
     location: string;
     imageUrl?: string;
+    image_url?: string; // For Supabase compatibility
     registrationLink?: string;
     category?: string;
 }
@@ -26,9 +27,10 @@ export interface LibraryItem {
     id: string;
     title: string;
     description: string;
-    type: 'article' | 'video' | 'book' | 'course' | 'tool';
+    type: 'android' | 'cloud' | 'ml' | 'web' | 'design' | 'other';
     url: string;
     imageUrl?: string;
+    image_url?: string; // For Supabase compatibility
     tags?: string[];
 }
 
@@ -118,7 +120,7 @@ export const mockLibraryItems: LibraryItem[] = [
         id: '1',
         title: 'Getting Started with Google Cloud',
         description: 'Official documentation for Google Cloud Platform beginners.',
-        type: 'article',
+        type: 'cloud',
         url: 'https://cloud.google.com/docs',
         tags: ['cloud', 'gcp', 'beginner'],
     },
@@ -126,7 +128,7 @@ export const mockLibraryItems: LibraryItem[] = [
         id: '2',
         title: 'Kotlin for Android Development',
         description: 'Comprehensive video course on Android development with Kotlin.',
-        type: 'video',
+        type: 'android',
         url: 'https://developer.android.com/courses',
         tags: ['android', 'kotlin', 'mobile'],
     },
@@ -134,7 +136,7 @@ export const mockLibraryItems: LibraryItem[] = [
         id: '3',
         title: 'Firebase Documentation',
         description: 'Complete guide to Firebase services and integration.',
-        type: 'article',
+        type: 'web',
         url: 'https://firebase.google.com/docs',
         tags: ['firebase', 'backend', 'web'],
     },
@@ -142,7 +144,7 @@ export const mockLibraryItems: LibraryItem[] = [
         id: '4',
         title: 'Material Design Guidelines',
         description: 'Google\'s design system for creating beautiful interfaces.',
-        type: 'article',
+        type: 'design',
         url: 'https://material.io/design',
         tags: ['design', 'ui', 'ux'],
     },

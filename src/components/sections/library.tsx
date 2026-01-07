@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ExternalLink } from 'lucide-react';
 import { useLibraryManagement } from '@/hooks/use-library-management';
 

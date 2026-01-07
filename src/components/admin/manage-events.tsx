@@ -96,7 +96,7 @@ export default function ManageEvents({ events, loading, refetchEvents }: ManageE
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
                                             <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                            <AlertDialogAction onClick={() => handleDelete(event.id, event.title, event.image_url || undefined)}>
+                                            <AlertDialogAction onClick={() => handleDelete(event.id, event.title, event.imageUrl || undefined)}>
                                                 Continue
                                             </AlertDialogAction>
                                         </AlertDialogFooter>

@@ -75,7 +75,7 @@ export default function ManageLibraryItems({ items, loading, refetchItems }: Man
                         {items.map(item => (
                             <li key={item.id} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
                                 <div className="flex items-center gap-4">
-                                    {item.resourceType === 'Image' ? (
+                                    {item.imageUrl ? (
                                         <img src={item.imageUrl} alt={item.title} width={40} height={40} className="rounded-md object-cover" />
                                     ) : (
                                         <div className="h-10 w-10 flex items-center justify-center bg-muted rounded-md">
@@ -85,8 +85,8 @@ export default function ManageLibraryItems({ items, loading, refetchItems }: Man
                                     <div>
                                         <p className="font-semibold">{item.title}</p>
                                         <div className='flex gap-2 items-center'>
-                                            <p className="text-sm text-muted-foreground">{item.category}</p>
-                                            <Badge variant="outline">{item.resourceType}</Badge>
+                                            <p className="text-sm text-muted-foreground capitalize">{item.tags?.join(', ')}</p>
+                                            <Badge variant="outline" className="capitalize">{item.type}</Badge>
                                         </div>
                                     </div>
                                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Linkedin, Twitter } from 'lucide-react';
 import { useMemberManagement } from '@/hooks/use-member-management';
