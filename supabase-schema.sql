@@ -186,9 +186,9 @@ VALUES
 -- Sample Library Items
 INSERT INTO library_items (title, description, type, url, tags)
 VALUES 
-  ('Getting Started with Google Cloud', 'Official documentation for Google Cloud Platform beginners.', 'article', 'https://cloud.google.com/docs', ARRAY['cloud', 'gcp', 'beginner']),
-  ('Kotlin for Android Development', 'Comprehensive video course on Android development with Kotlin.', 'video', 'https://developer.android.com/courses', ARRAY['android', 'kotlin', 'mobile']),
-  ('Firebase Documentation', 'Complete guide to Firebase services and integration.', 'article', 'https://firebase.google.com/docs', ARRAY['firebase', 'backend', 'web']);
+  ('Getting Started with Google Cloud', 'Official documentation for Google Cloud Platform beginners.', 'cloud', 'https://cloud.google.com/docs', ARRAY['cloud', 'gcp', 'beginner']),
+  ('Kotlin for Android Development', 'Comprehensive video course on Android development with Kotlin.', 'android', 'https://developer.android.com/courses', ARRAY['android', 'kotlin', 'mobile']),
+  ('Firebase Documentation', 'Complete guide to Firebase services and integration.', 'web', 'https://firebase.google.com/docs', ARRAY['firebase', 'backend', 'web']);
 
 -- Sample Advisor
 INSERT INTO advisors (name, title, bio, image_url, email, linkedin, quote)
