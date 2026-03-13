@@ -87,7 +87,7 @@ export default function EventsSection() {
                         ))}
                     </div>
                 )}
-            </div>
+            </div> 
         </section>
     );
 }
