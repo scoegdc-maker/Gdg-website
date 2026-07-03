@@ -44,7 +44,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} GDG on Campus SCOE. All rights reserved.
         </p>
         <p className="mt-1 text-center text-md text-muted-foreground/60 flex items-center justify-center gap-1">
-          Designed & Developed by Mehvish Mulani and Devavrat Dhaygude 😎
+          Designed & Developed by <a href="https://www.linkedin.com/in/mehvish-mulani-058b3a327" target="_blank" rel="noopener noreferrer" className="text-foreground font-medium hover:text-google-blue transition-colors hover:underline">Mehvish Mulani</a> and <a href="https://www.linkedin.com/in/devavratdhaygude" target="_blank" rel="noopener noreferrer" className="text-foreground font-medium hover:text-google-blue transition-colors hover:underline">Devavrat Dhaygude</a> 😎
         </p>
       </div>
     </footer>

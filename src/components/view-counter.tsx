@@ -1,17 +1,54 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Eye } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 const ViewCounter = () => {
   const [views, setViews] = useState<number | null>(null);
+  const fetched = useRef(false);
 
   useEffect(() => {
-    // Mock view counter - use localStorage to simulate persistence
-    const storedViews = localStorage.getItem('siteViews');
-    const currentViews = storedViews ? parseInt(storedViews, 10) : 0;
-    const newViews = currentViews + 1;
+    const initViewCount = async () => {
+      // Prevent double firing in React StrictMode
+      if (fetched.current) return;
+      fetched.current = true;
 
-    localStorage.setItem('siteViews', newViews.toString());
-    setViews(newViews);
+      // Check if this session already incremented the view
+      const hasIncremented = sessionStorage.getItem('hasIncrementedView');
+
+      try {
+        if (!hasIncremented) {
+          // Increment the count globally via RPC
+          const { data, error } = await supabase.rpc('increment_view_count');
+          
+          if (error) {
+            console.error('Error incrementing view count:', error);
+            await fetchCurrentCount();
+          } else if (data !== null) {
+            setViews(data);
+            sessionStorage.setItem('hasIncrementedView', 'true');
+          }
+        } else {
+          // Just fetch the current global count without incrementing
+          await fetchCurrentCount();
+        }
+      } catch (err) {
+        console.error('Failed to init view count:', err);
+      }
+    };
+
+    const fetchCurrentCount = async () => {
+      const { data, error } = await supabase
+        .from('site_analytics')
+        .select('view_count')
+        .eq('id', 1)
+        .single();
+        
+      if (data && !error) {
+        setViews(data.view_count);
+      }
+    };
+
+    initViewCount();
   }, []);
 
   return (
